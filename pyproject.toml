@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biomedical_analysis"
+version = "0.1.0"
+description = "Bioinformatics project for Protein-Protein Interaction (PPI) prediction using GCN and Protein Language Models."
+readme = "README.txt"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = this0655", email = "this0655@gmail.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0.0",           # GCN 및 딥러닝 모델
+    "torch_geometric",        # GCN 모델 및 그래프 데이터 구조
+    "transformers>=4.30.0",   # ProtBERT, ESM, T5 모델
+    "numpy>=1.24.0",          # 수치 연산
+    "requests",               # API 통신 (Ensembl, STRING)
+    "scikit-learn",           # PCA 및 평가 지표
+    "bidict",                 # 양방향 딕셔너리 (make_node_edge_graph.py)
+    "sentencepiece",          # ProtT5 토크나이저 필수 의존성
+    "protobuf"                # Transformers 모델 로드 필수 의존성
+]
+
+[project.urls]
+"Homepage" = "https://github.com/this0655/GNN-protein-interaction.git"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["code*"]  # code 폴더를 패키지로 포함
